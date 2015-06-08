@@ -1,9 +1,21 @@
-package ba.home.boris.homework.weekend2;
+package ba.home.boris.homework.weekend3;
 
 import java.util.Scanner;
 
 public class Strings {
 	
+	
+	/**
+	 * Unijeti dva String-a preko konzole.
+	 * 
+	  * Napisati metodu koja određuje da li se sva slova iz prvog String-a pojavljuju u drugom.
+	 * Primjer 1: Za String-ove „Java“ i „Ajvar“ vraća true
+	 * Primjer 2: Za String-ove „Ajvar“ i „Java“ vaća false
+	 * 
+	 * Napisati metodu koja određuje da li su ta dva String-a anagrami, tj. da li posjeduju ista slova.
+	 * Primjer 1: Riječi „byte“ i „tybe“ su anagrami
+	 * Primjer 2: Riječi „intt“ i „ntii“ nisu anagrami
+	 */
 	
 	public static void main(String[] args) {
 		
@@ -22,7 +34,7 @@ public class Strings {
 	wichStringComesLastInAlphabet(first, second);
 	
 	// Method that determines if two strings are anagrams.
-	areAnagrams(first, second);
+	System.out.println("Are strings anagrams? " + areAnagrams(first, second));
 	
 	input.close();	
 	}
@@ -66,25 +78,17 @@ public class Strings {
 	
 	// Method that determines if two strings are anagrams.
 	
-	static void areAnagrams (String first, String second) {
+	static boolean areAnagrams (String first, String second) {
 		
-		char[] arrayFirstString = first.toCharArray(); 
-		char[] arraySecondString = second.toCharArray();
-		if (arrayFirstString.length == arraySecondString.length) {
-			for (int i = 0; i < arrayFirstString.length; i++) {
-				for (int j = 0; j < arraySecondString.length; j++) {
-					if (arrayFirstString[i] == arraySecondString[j]) {
-						System.out.println("Strings are anagrams");
-						break;
-					} 
-				}
-			}
-		} else {
-			System.out.println("Strings not anagrams.");
+		if (first.contains(second) || second.contains(first)) {
+			return true;
 		}
+		return false;
+		
+	}
 		
 				
-	}
+	
 	
 	
 	
