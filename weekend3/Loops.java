@@ -20,6 +20,8 @@ public class Loops {
 		// Method for switching place of first and last digit in a number.
 		System.out.printf("Number %d with switched first and last digit is > ", n);
 		System.out.println(switchFirstAndLastDigit(n));
+		
+		numbersBetweenNAndQ(n, 32);
 
 		input.close();
 
@@ -86,6 +88,35 @@ public class Loops {
 		} else { // Only one digit so return it.
 			return n;
 		}
+	}
+	
+	/**
+	 * Prints odd or even numbers between two inputed numbers to standard output.
+	 * 
+	 * @param n - first inputed number, over scanner
+	 * @param q - second inputed number, manually
+	 */
+	static void numbersBetweenNAndQ (int n, int q) {
+		while (n < q){
+			if (n % 2 == 0) {
+				n += 2;
+				System.out.println(n);
+			} else if (n % 2 != 0) {
+				n += 2;
+				System.out.println(n);
+			}
+		}
+		while (n > q) {
+			if (n % 2 == 0) {
+				n -= 2;
+				System.out.println(n);
+			} else if (n % 2 != 0) {
+				n -= 2;
+				System.out.println(n);
+			}
+		}
+		
+		
 	}
 
 }
