@@ -30,10 +30,25 @@ public class Main {
 	Author a2 = new Author("Ivo Andric", 1892, b2);
 	
 	
-	Author[] aa = new Author[2];
+	Book[] b3 = new Book[11];
+	b3[0] = new Book("Uvrijedjeni covjek", 1947, "roman", false);
+	b3[1] = new Book("Prva ceta", 1950, "roman", true);
+	b3[2] = new Book("Tuda zemlja", 1957, "roman", true);
+	b3[3] = new Book("Noc i jutra", 1958, "roman", false);
+	b3[4] = new Book("Tisine", 1961, "roman", true);
+	b3[5] = new Book("Magla i mjesecina", 1965, "roman", false);
+	b3[6] = new Book("Dervis i smrt", 1966, "roman", true);
+	b3[7] = new Book("Za i protiv vuka", 1967, "roman", true);
+	b3[8] = new Book("Tvrdava", 1970, "roman", true);
+	b3[9] = new Book("Djevojka crvene kose", 1970, "roman", true);
+	b3[10] = new Book("Ostrvo", 1074, "roman", false);
+	
+	Author a3 = new Author("Mesa Slimovic", 1910, b3);
+	
+	Author[] aa = new Author[3];
 	aa[0] = new Author("Miroslav Krleza", 1893, b1);
 	aa[1] = new Author("Ivo Andric", 1892, b2);
-	
+	aa[2] = new Author("Mesa Selimovic", 1910, b3);
 
 	// Printing results of methods, hover mouse over method name to see what to input
 	System.out.println(a1.authorName + " have " + countBestsellingBooks(a1) + " bestseller(s).");	
@@ -89,29 +104,41 @@ public class Main {
 	 * @return Author name with more bestsellers
 	 */
 	public static Author getAuthorWithMostBestsellers(Author[] authors) {
-		int counter1 = 0; // Counter for first author
-		Author index1 = authors[0]; // Starting index
-		int counter2 = 0; // Counter for second author
-		Author index2 = authors[0]; // Starting index 
-		for (int i = 0; i < authors.length; i++) { // Goes thru length of authors array 
-			for (int j = 0; j < authors[i].books.length; j++) { // Goes thru length of first author books array
-				if (authors[i].books[j].isBestseller = true) { // Checks if there are bestsellers
-					counter1++; // Calculates it
-					index1 = authors[i]; // Takes index of that author in array
-				}
-			}
-			for (int j = 0; j < authors[i].books.length; j++) { // Goes thru length of second author books array
-				if (authors[i].books[j].isBestseller = true) { // Checks if there are bestsellers
-					counter2++; // Calculates it
-					index2 = authors[i]; // Takes index of that author in array
-				}
+		Author withMostBestsellers = authors[0];
+		int counter = 0;
+		for (int j = 0; j < authors.length; j++) {
+			if (countBestsellingBooks(authors[j]) > counter) {
+				counter = countBestsellingBooks(authors[j]);
+				withMostBestsellers = authors[j];
 			}
 		}
-		if (counter1 > counter2) { // Compares whit of two have more bestsellers
-			return index1; // Returns name of first
-		}
-		return index2; // Returns name of second
-		
+		return withMostBestsellers;
 	}
+	// Previous version of above method
+//	public static Author getAuthorWithMostBestsellers(Author[] authors) {
+//		int counter1 = 0; // Counter for first author
+//		Author index1 = authors[0]; // Starting index
+//		int counter2 = 0; // Counter for second author
+//		Author index2 = authors[0]; // Starting index 
+//		for (int i = 0; i < authors.length; i++) { // Goes thru length of authors array 
+//			for (int j = 0; j < authors[i].books.length; j++) { // Goes thru length of first author books array
+//				if (authors[i].books[j].isBestseller = true) { // Checks if there are bestsellers
+//					counter1++; // Calculates it
+//					index1 = authors[i]; // Takes index of that author in array
+//				}
+//			}
+//			for (int j = 0; j < authors[i].books.length; j++) { // Goes thru length of second author books array
+//				if (authors[i].books[j].isBestseller = true) { // Checks if there are bestsellers
+//					counter2++; // Calculates it
+//					index2 = authors[i]; // Takes index of that author in array
+//				}
+//			}
+//		}
+//		if (counter1 > counter2) { // Compares whit of two have more bestsellers
+//			return index1; // Returns name of first
+//		}
+//		return index2; // Returns name of second
+//		
+//	}
 	
 }
